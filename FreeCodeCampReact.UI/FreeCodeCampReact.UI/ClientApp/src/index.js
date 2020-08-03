@@ -64,6 +64,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import ReactDOM from "react-dom";
 
-import ExerciseApp from "./ExerciseApp";
+import App from "./Practice/App";
 
-ReactDOM.render(<ExerciseApp />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"))

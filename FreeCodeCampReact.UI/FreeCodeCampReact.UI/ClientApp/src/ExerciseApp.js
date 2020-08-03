@@ -5,7 +5,7 @@ import MainContent from "./components/MainContent";
 
 function ExerciseApp() {
     return (
-        <div class="container">
+        <div className="container">
             <Header />
             <MainContent />            
             <Footer />
