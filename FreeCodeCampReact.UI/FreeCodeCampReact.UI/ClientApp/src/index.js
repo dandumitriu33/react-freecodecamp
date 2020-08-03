@@ -60,7 +60,7 @@
 
 
 // Creating the App entry point element - same level as Components in tree
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import ReactDOM from "react-dom";
 
