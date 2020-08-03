@@ -6,22 +6,37 @@ function MainContent() {
     const date = new Date();
     let hours = date.getHours();
     let timeOfDay;
+    const styles = {
+        fontSize: 30
+    }
 
     if (hours < 12) {
         timeOfDay = "morning";
+        styles.color = "#04756F";
     }
     else if (hours >= 12 && hours < 17) {
         timeOfDay = "afternoon";
+        styles.color = "#8914A3";
     }
     else {
         timeOfDay = "evening";
+        styles.color = "#D90000";
     }
-
-
+    
+    //quarks
+    // this is a JS object
+    // 1. JS can't have - like for background-color - well, it can with 'background-color' but
+    // the solution is to turn it to Camel case after the dash like below
+    // 2. The fontSize takes by default px. Also we can write it without the "30px" as a string, cuz valid JS
+    //const styles = {
+    //    color: "#FF8C00",
+    //    backgroundColor: "aquamarine",
+    //    fontSize: 30
+    //}
     return (
         <main>
             <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
-            <p>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
+            <p style={styles}>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
             <hr />
             <input type="checkbox" />
             <p>Vacation to go on.</p>
