@@ -1,8 +1,28 @@
 ﻿import React from "react";
 
 function MainContent() {
+    let firstName = "Bob";
+    let lastName = "Bobson";
+    const date = new Date();
+    let hours = date.getHours();
+    let timeOfDay;
+
+    if (hours < 12) {
+        timeOfDay = "morning";
+    }
+    else if (hours >= 12 && hours < 17) {
+        timeOfDay = "afternoon";
+    }
+    else {
+        timeOfDay = "evening";
+    }
+
+
     return (
         <main>
+            <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
+            <p>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
+            <hr />
             <input type="checkbox" />
             <p>Vacation to go on.</p>
 
