@@ -3,7 +3,11 @@
 function Footer() {
     return (
         <footer>
-            <h3>Copyright Bob's Technologies 2020.</h3>
+            <br/>
+            <br/>
+            <br/>
+            <hr />
+            <h6>Copyright Bob's Technologies 2020.</h6>
         </footer>
         )
 }

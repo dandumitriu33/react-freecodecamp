@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import ToDoItem from "./ToDoItem"
 
 function MainContent() {
     let firstName = "Bob";
@@ -7,7 +8,7 @@ function MainContent() {
     let hours = date.getHours();
     let timeOfDay;
     const styles = {
-        fontSize: 30
+        fontSize: 22
     }
 
     if (hours < 12) {
@@ -37,18 +38,12 @@ function MainContent() {
         <main>
             <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
             <p style={styles}>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
-            <hr />
-            <input type="checkbox" />
-            <p>Vacation to go on.</p>
-
-            <input type="checkbox" />
-            <p>Vacation to go on.</p>
-
-            <input type="checkbox" />
-            <p>Vacation to go on.</p>
-
-            <input type="checkbox" />
-            <p>Vacation to go on.</p>
+            
+            <div className="todo-list">
+                <ToDoItem />
+                <ToDoItem />
+                <ToDoItem />  
+            </div>
         </main>
         )
 }
