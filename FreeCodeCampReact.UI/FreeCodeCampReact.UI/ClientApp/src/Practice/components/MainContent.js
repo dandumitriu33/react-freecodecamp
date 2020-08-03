@@ -1,5 +1,7 @@
 ﻿import React from "react";
 import ToDoItem from "./ToDoItem"
+import ContactCard from "./ContactCard";
+import Joke from "./Joke"
 
 function MainContent() {
     let firstName = "Bob";
@@ -43,6 +45,50 @@ function MainContent() {
                 <ToDoItem />
                 <ToDoItem />
                 <ToDoItem />  
+            </div>
+            <br />
+            <br />
+            <br />
+            <hr />
+            <div className="jokes">
+                <Joke
+                    question="Woof?"
+                    punchline="Bork"
+                />
+                <Joke
+                    punchline="Bork? No question."
+                />
+            </div>
+            <hr />
+            <div className="contacts">
+                <ContactCard
+                    // an object also works but local img needs tweaking with require
+                    //contact={{
+                    //    name: "Mr. Hidebone",
+                    //    imgUrl: "./img/puppy1.jpg",
+                    //    phone: "(123) 123-1234",
+                    //    email: "mr.hidebone@pups.woof"
+                    //}}
+                    name="Mr. Hidebone"
+                    imgUrl="./img/puppy1.jpg"
+                    phone="(123) 123-1234"
+                    email="mr.hidebone@pups.woof" />
+                <ContactCard
+                    name="Mr. Fluff"
+                    imgUrl="./img/puppy2.jpg"
+                    phone="(323) 123-1234"
+                    email="mr.fluff@pups.woof" />
+                <ContactCard
+                    name="Mr. Ears"
+                    imgUrl="./img/puppy3.jpg"
+                    phone="(222) 123-1234"
+                    email="mr.ears@pups.woof" />
+                <ContactCard
+                    name="Mr. Hide"
+                    imgUrl="./img/puppy4.jpg"
+                    phone="(111) 123-1234"
+                    email="mr.hide@pups.woof"/>
+                
             </div>
         </main>
         )
