@@ -46,14 +46,24 @@
 //    <MyApp />,
 //    document.getElementById("root"));
 
-// Exercise 2 - Functional components
+// Exercise 2 - Functional components + move to new file
+//import 'bootstrap/dist/css/bootstrap.css';
+//import React from "react";
+//import ReactDOM from "react-dom";
+
+//import Vacations from "./components/Vacations";
+
+
+//ReactDOM.render(
+//    <Vacations />,
+//    document.getElementById("root"));
+
+
+// Creating the App entry point element - same level as Components in tree
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Vacations from "./components/Vacations";
+import ExerciseApp from "./ExerciseApp";
 
-
-ReactDOM.render(
-    <Vacations />,
-    document.getElementById("root"));
+ReactDOM.render(<ExerciseApp />, document.getElementById("root"))
