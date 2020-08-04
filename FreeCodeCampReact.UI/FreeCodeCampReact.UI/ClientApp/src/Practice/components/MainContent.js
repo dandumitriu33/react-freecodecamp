@@ -40,7 +40,7 @@ function MainContent() {
 
 
     let jokeComponents = jokesData.map(joke => {
-        return <Joke question={joke.question} punchLine={joke.punchLine} />;
+        return <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />;
     })
 
     return (
