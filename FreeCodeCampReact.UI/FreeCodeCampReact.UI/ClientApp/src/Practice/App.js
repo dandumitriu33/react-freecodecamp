@@ -2,6 +2,7 @@
 import Header from "./components/Header";
 import MainContent from "./components/MainContent"
 import Footer from "./components/Footer"
+import Conditional from "./components/Conditional"
 
 import "./style.css"
 
@@ -26,10 +27,11 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            answer: "Yes",
-            name: "Bob",
-            age: 52,
-            count: 0
+            answer: "Loading...",
+            name: "Loading...",
+            age: "Loading...",
+            count: "Loading...",
+            isLoading: true
         }
         this.handleCountClick = this.handleCountClick.bind(this);
         this.handleDoubleClick = this.handleDoubleClick.bind(this);
@@ -49,7 +51,8 @@ class App extends React.Component {
                 answer: previousState.answer,
                 name: previousState.name,
                 age: previousState.age,
-                count: previousState.count + 1
+                count: previousState.count + 1,
+                isLoading: previousState.isLoading
             }
         })
     }
@@ -65,10 +68,32 @@ class App extends React.Component {
         })
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState((previousState) => {
+                return {
+                    answer: "Yes",
+                    name: "Bob",
+                    age: 52,
+                    count: 0,
+                    isLoading: false
+                }       
+            })
+        }, 1500)
+    }
+
     render() {
         return (
             <div>
                 <Header />
+                <div>
+                    <hr />
+                    {this.state.isLoading ? 
+                        <h1>Loading...</h1> :
+                        <Conditional />
+                    }
+                    <hr />
+                </div>
                 <div>
                     <hr />
                     <p>Changing state exercise</p>
