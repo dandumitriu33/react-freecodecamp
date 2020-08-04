@@ -32,10 +32,26 @@ class App extends React.Component {
         }
     }
 
+    handleClick() {
+        alert("I was clicked ...method...");
+    }
+
+    handleMouseLeavePara() {
+        //alert("Mouse left paragraph.")
+    }
+
     render() {
         return (
             <div>
                 <Header />
+                <div>
+                    <hr />
+                    <p onMouseLeave={this.handleMouseLeavePara}>Click event exercise.</p>
+                    <br />
+                    <br />
+                    <button onClick={this.handleClick}>Click me!</button>
+                    <hr />
+                </div>
                 <div>
                     <h1>Is state important to know? Answer: {this.state.answer}</h1>
                     

@@ -11,11 +11,8 @@ class MainContent extends React.Component {
 
     constructor() {
         super();
-        let todoComponents = todosData.map(item => {
-            return <ToDoItem key={item.id} item={item} />
-        })
         this.state = {
-            todoComponents: todoComponents
+            todos: todosData
         }
     }
 
@@ -62,13 +59,17 @@ class MainContent extends React.Component {
             return <Product key={item.id} product={item} />
         })
 
+        let todoComponents = this.state.todos.map(item => {
+            return <ToDoItem key={item.id} item={item} />
+        })
+
         return (
             <main>
                 <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
                 <p style={styles}>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
 
                 <div className="todo-list">
-                    {this.state.todoComponents}
+                    {todoComponents}
                 </div>
                 <br />
                 <br />
