@@ -14,29 +14,46 @@ import "./style.css"
 //        </div>
 //        )
 //}
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            answer: "Yes"
-        }
-    }
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <div>
-                    <h1>Is state important to know? Answer: {this.state.answer}</h1>
-                    <ChildComponent answer={this.state.answer}/>
-                </div>
-                <MainContent />
-                <Footer />
-            </div>
-        )
-    }
-}
- 
+
+
+
+
+// MAIN APP HERE ***************************
+// passing info to child components done via props
+// <ChildComponent answer={this.state.answer} />
+//class App extends React.Component {
+//    constructor() {
+//        super();
+//        this.state = {
+//            answer: "Yes",
+//            name: "Bob",
+//            age: 52
+//        }
+//    }
+
+//    render() {
+//        return (
+//            <div>
+//                <Header />
+//                <div>
+//                    <h1>Is state important to know? Answer: {this.state.answer}</h1>
+                    
+//                    <p>This is the vacation list for {this.state.name} who is {this.state.age} years old.</p>
+//                </div>
+//                <MainContent />
+//                <Footer />
+//            </div>
+//        )
+//    }
+//}
+
+
+
+
+
+
+
 //class Header extends React.Component {
 //    render() {
 //        return (
@@ -90,5 +107,24 @@ class Greeting extends React.Component {
 //            )
 //    }
 //}
+
+// EXERCISE LOG IN/OUT
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isLoggedIn: false
+        }
+
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>You are currently logged {this.state.isLoggedIn ? "in" : "out"}.</h1>
+                </div>
+            )
+    }
+}
 
 export default App;
