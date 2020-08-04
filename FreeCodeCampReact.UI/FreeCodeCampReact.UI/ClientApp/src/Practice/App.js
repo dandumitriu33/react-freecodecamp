@@ -31,10 +31,17 @@ class App extends React.Component {
             name: "Loading...",
             age: "Loading...",
             count: "Loading...",
+            unreadMessages: [
+                    
+            ],
+            isLoggedIn: false,
             isLoading: true
         }
         this.handleCountClick = this.handleCountClick.bind(this);
         this.handleDoubleClick = this.handleDoubleClick.bind(this);
+        this.handleLogInClick = this.handleLogInClick.bind(this);
+        this.handleLogOutClick = this.handleLogOutClick.bind(this);
+        
     }
 
     handleClick() {
@@ -52,6 +59,7 @@ class App extends React.Component {
                 name: previousState.name,
                 age: previousState.age,
                 count: previousState.count + 1,
+                isLoggedIn: previousState.isLoggedIn,
                 isLoading: previousState.isLoading
             }
         })
@@ -63,7 +71,9 @@ class App extends React.Component {
                 answer: previousState.answer,
                 name: previousState.name,
                 age: previousState.age,
-                count: previousState.count * 2
+                count: previousState.count * 2,
+                isLoggedIn: previousState.isLoggedIn,
+                isLoading: previousState.isLoading
             }
         })
     }
@@ -76,16 +86,75 @@ class App extends React.Component {
                     name: "Bob",
                     age: 52,
                     count: 0,
+                    unreadMessages: [
+                        "Call grandma!",
+                        "New spam email."
+                    ],
+                    isLoggedIn: false,
                     isLoading: false
                 }       
             })
         }, 1500)
     }
 
+    handleLogInClick() {
+        console.log("Log In clicked");
+        this.setState((previousState) => {
+            return {
+                answer: previousState.answer,
+                name: previousState.name,
+                age: previousState.age,
+                count: previousState.count,
+                isLoggedIn: true,
+                isLoading: previousState.isLoading
+            }
+        })
+    }
+
+    handleLogOutClick() {
+        console.log("Log Out clicked");
+        this.setState((previousState) => {
+            return {
+                answer: previousState.answer,
+                name: previousState.name,
+                age: previousState.age,
+                count: previousState.count,
+                isLoggedIn: false,
+                isLoading: previousState.isLoading
+            }
+        })
+    }
+
     render() {
         return (
             <div>
                 <Header />
+                <div>
+                    <hr />
+                    <div>
+                        {
+                            this.state.isLoggedIn ?
+                                <div>
+                                <p>You are logged in.</p>
+                                <button onClick={this.handleLogOutClick}>Log Out</button>
+                                </div> :
+                                <div>
+                                <p>You are not logged in.</p>
+                                    <button onClick={this.handleLogInClick}>Log In</button>
+                                </div>
+                        }
+                    </div>
+                    
+                    <hr />
+                </div>
+                <div>
+                    <hr />
+                    {
+                        this.state.unreadMessages.length > 0 &&
+                        <h2>You have {this.state.unreadMessages.length} unread messages.</h2>
+                    }
+                    <hr />
+                </div>
                 <div>
                     <hr />
                     {this.state.isLoading ? 
