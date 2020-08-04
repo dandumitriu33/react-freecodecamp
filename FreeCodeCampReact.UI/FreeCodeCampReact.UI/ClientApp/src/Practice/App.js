@@ -28,8 +28,11 @@ class App extends React.Component {
         this.state = {
             answer: "Yes",
             name: "Bob",
-            age: 52
+            age: 52,
+            count: 0
         }
+        this.handleCountClick = this.handleCountClick.bind(this);
+        this.handleDoubleClick = this.handleDoubleClick.bind(this);
     }
 
     handleClick() {
@@ -40,10 +43,43 @@ class App extends React.Component {
         //alert("Mouse left paragraph.")
     }
 
+    handleCountClick() {
+        console.log("+1 pressed");
+        //this.setState({ count: 1})
+        this.setState((previousState) => {
+            return {
+                answer: previousState.answer,
+                name: previousState.name,
+                age: previousState.age,
+                count: previousState.count + 1
+            }
+        })
+    }
+
+    handleDoubleClick() {
+        console.log("Double is pressed");
+        this.setState((previousState) => {
+            return {
+                answer: previousState.answer,
+                name: previousState.name,
+                age: previousState.age,
+                count: previousState.count * 2
+            }
+        })
+    }
+
     render() {
         return (
             <div>
                 <Header />
+                <div>
+                    <hr />
+                    <p>Changing state exercise</p>
+                    <h1>{this.state.count}</h1>
+                    <button onClick={ this.handleCountClick }>Change!</button>
+                    <button onClick={ this.handleDoubleClick }>Double!</button>
+                    <hr />
+                </div>
                 <div>
                     <hr />
                     <p onMouseLeave={this.handleMouseLeavePara}>Click event exercise.</p>
