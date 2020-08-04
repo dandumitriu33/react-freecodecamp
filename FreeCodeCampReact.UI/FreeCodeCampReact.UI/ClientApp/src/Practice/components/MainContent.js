@@ -13,7 +13,23 @@ class MainContent extends React.Component {
         super();
         this.state = {
             todos: todosData
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(id) {
+        console.log(`Changed ${id}`);
+        this.setState(previousState => {
+            const updatedTodos = previousState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed;
+                };
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
     }
 
     render() {
@@ -60,7 +76,7 @@ class MainContent extends React.Component {
         })
 
         let todoComponents = this.state.todos.map(item => {
-            return <ToDoItem key={item.id} item={item} />
+            return <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
         })
 
         return (

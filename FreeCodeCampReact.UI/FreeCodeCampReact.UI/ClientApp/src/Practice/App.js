@@ -38,11 +38,9 @@ class App extends React.Component {
     handleClick() {
         alert("I was clicked ...method...");
     }
-
     handleMouseLeavePara() {
         //alert("Mouse left paragraph.")
     }
-
     handleCountClick() {
         console.log("+1 pressed");
         //this.setState({ count: 1})
@@ -55,7 +53,6 @@ class App extends React.Component {
             }
         })
     }
-
     handleDoubleClick() {
         console.log("Double is pressed");
         this.setState((previousState) => {

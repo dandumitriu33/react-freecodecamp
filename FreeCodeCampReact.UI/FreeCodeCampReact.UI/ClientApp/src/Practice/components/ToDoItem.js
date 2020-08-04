@@ -8,16 +8,12 @@ class ToDoItem extends React.Component {
         }
     }
 
-    handleCheckBoxOnChange() {
-        console.log("error gone");
-    }
-
     render() {
         return (
             <div className="todo-item">
                 <input
                     type="checkbox"
-                    onChange={this.handleCheckBoxOnChange}
+                    onChange={(event) => this.props.handleChange(this.props.item.id)}
                     checked={this.props.item.completed}
                 />
                 <p>{this.props.item.text}</p>
