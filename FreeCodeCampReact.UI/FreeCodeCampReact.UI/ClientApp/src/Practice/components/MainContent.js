@@ -5,6 +5,7 @@ import Joke from "./Joke";
 import jokesData from "./data/jokesData";
 import vschoolProducts from "./data/vschoolProducts";
 import Product from "./Product";
+import todosData from "./data/todosData";
 
 function MainContent() {
     let firstName = "Bob";
@@ -49,15 +50,17 @@ function MainContent() {
         return <Product key={item.id} product={item}/>
     })
 
+    let todoComponents = todosData.map(item => {
+        return <ToDoItem key={item.id} item={item} />
+    })
+
     return (
         <main>
             <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
             <p style={styles}>It's currently about {hours % 12} o'clock. Good {timeOfDay}!</p>
             
             <div className="todo-list">
-                <ToDoItem />
-                <ToDoItem />
-                <ToDoItem />  
+                {todoComponents} 
             </div>
             <br />
             <br />
