@@ -3,6 +3,8 @@ import ToDoItem from "./ToDoItem";
 import ContactCard from "./ContactCard";
 import Joke from "./Joke";
 import jokesData from "./data/jokesData";
+import vschoolProducts from "./data/vschoolProducts";
+import Product from "./Product";
 
 function MainContent() {
     let firstName = "Bob";
@@ -43,6 +45,10 @@ function MainContent() {
         return <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />;
     })
 
+    let productComponents = vschoolProducts.map(item => {
+        return <Product key={item.id} product={item}/>
+    })
+
     return (
         <main>
             <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
@@ -72,6 +78,8 @@ function MainContent() {
                 {jokeComponents}
             </div>
 
+            <hr />
+                {productComponents}
             <hr />
             <div className="contacts">
                 <ContactCard
