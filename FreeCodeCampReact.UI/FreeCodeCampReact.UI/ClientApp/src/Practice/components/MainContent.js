@@ -1,7 +1,8 @@
 ﻿import React from "react";
-import ToDoItem from "./ToDoItem"
+import ToDoItem from "./ToDoItem";
 import ContactCard from "./ContactCard";
-import Joke from "./Joke"
+import Joke from "./Joke";
+import jokesData from "./data/jokesData";
 
 function MainContent() {
     let firstName = "Bob";
@@ -36,6 +37,12 @@ function MainContent() {
     //    backgroundColor: "aquamarine",
     //    fontSize: 30
     //}
+
+
+    let jokeComponents = jokesData.map(joke => {
+        return <Joke question={joke.question} punchLine={joke.punchLine} />;
+    })
+
     return (
         <main>
             <h3>This is the vacation list for {`${firstName} ${lastName}`}.</h3>
@@ -53,12 +60,18 @@ function MainContent() {
             <div className="jokes">
                 <Joke
                     question="Woof?"
-                    punchline="Bork"
+                    punchLine="Bork"
                 />
                 <Joke
-                    punchline="Bork? No question."
+                    punchLine="Bork? No question."
                 />
             </div>
+            <hr />
+            
+            <div>
+                {jokeComponents}
+            </div>
+
             <hr />
             <div className="contacts">
                 <ContactCard
