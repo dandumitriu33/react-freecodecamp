@@ -63,10 +63,12 @@
 //import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import ReactDOM from "react-dom";
+import "./MemeGenerator/style.css"
 
-import App from "./Practice/App";
+//import App from "./Practice/App";
 import AppAPI from "./Practice/AppAPI";
 import AppForms from "./Practice/AppForms";
 import AppTravelForm from "./Practice/AppTravelForm";
+import App from "./MemeGenerator/App";
 
-ReactDOM.render(<AppTravelForm />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"))
