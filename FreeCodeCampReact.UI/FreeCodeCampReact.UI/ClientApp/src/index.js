@@ -67,5 +67,6 @@ import ReactDOM from "react-dom";
 import App from "./Practice/App";
 import AppAPI from "./Practice/AppAPI";
 import AppForms from "./Practice/AppForms";
+import AppTravelForm from "./Practice/AppTravelForm";
 
-ReactDOM.render(<AppForms />, document.getElementById("root"))
+ReactDOM.render(<AppTravelForm />, document.getElementById("root"))
